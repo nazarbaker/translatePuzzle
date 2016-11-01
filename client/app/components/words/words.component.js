@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var words_service_1 = require('../../services/words.service');
 var WordsComponent = (function () {
-    function WordsComponent() {
+    function WordsComponent(wordsService) {
+        this.wordsService = wordsService;
     }
     WordsComponent = __decorate([
         core_1.Component({
@@ -18,7 +20,7 @@ var WordsComponent = (function () {
             selector: 'words',
             templateUrl: 'words.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [words_service_1.WordsService])
     ], WordsComponent);
     return WordsComponent;
 }());

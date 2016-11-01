@@ -8,21 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var words_service_1 = require('./services/words.service');
-var AppComponent = (function () {
-    function AppComponent() {
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+require('rxjs/add/operator/map');
+var WordsService = (function () {
+    function WordsService(http) {
+        this.http = http;
+        console.log('Words Service Initialized...');
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-            providers: [words_service_1.WordsService]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    WordsService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], WordsService);
+    return WordsService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.WordsService = WordsService;
+//# sourceMappingURL=words.service.js.map
