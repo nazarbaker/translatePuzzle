@@ -12,10 +12,11 @@ var core_1 = require('@angular/core');
 var words_service_1 = require('../../services/words.service');
 var WordsComponent = (function () {
     function WordsComponent(wordsService) {
+        var _this = this;
         this.wordsService = wordsService;
         this.wordsService.getTasks()
             .subscribe(function (words) {
-            console.log(words);
+            _this.words = words;
         });
     }
     WordsComponent = __decorate([

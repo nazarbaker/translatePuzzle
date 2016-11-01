@@ -1,11 +1,13 @@
 <div class="task-list row">
-  <div class="col-md-4">
-    english
-  </div>
-  <div class="col-md-4">
-    ukraine
-  </div>
-  <div class="col-md-4">
-    <input type="button" value="Delete" class="btn btn-danger">
+  <div *ngFor="let word of words" class="row">
+    <div class="col-md-4">
+      {{ word.english }}
+    </div>
+    <div class="col-md-4">
+      {{ word.ukrainian }}
+    </div>
+    <div class="col-md-4">
+      <input type="button" value="Delete" class="btn btn-danger">
+    </div>
   </div>
 </div>
