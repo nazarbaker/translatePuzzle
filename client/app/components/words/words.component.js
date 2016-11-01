@@ -13,6 +13,10 @@ var words_service_1 = require('../../services/words.service');
 var WordsComponent = (function () {
     function WordsComponent(wordsService) {
         this.wordsService = wordsService;
+        this.wordsService.getTasks()
+            .subscribe(function (words) {
+            console.log(words);
+        });
     }
     WordsComponent = __decorate([
         core_1.Component({

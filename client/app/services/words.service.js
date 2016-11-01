@@ -16,6 +16,10 @@ var WordsService = (function () {
         this.http = http;
         console.log('Words Service Initialized...');
     }
+    WordsService.prototype.getTasks = function () {
+        return this.http.get('/api/words')
+            .map(function (res) { return res.json(); });
+    };
     WordsService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

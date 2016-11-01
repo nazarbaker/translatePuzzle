@@ -9,6 +9,9 @@ import { WordsService } from '../../services/words.service';
 
 export class WordsComponent {
     constructor(private wordsService: WordsService) {
-
+      this.wordsService.getTasks()
+          .subscribe(words => {
+            console.log(words);
+          });
     }
 }

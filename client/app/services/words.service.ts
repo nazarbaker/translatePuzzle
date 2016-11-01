@@ -8,4 +8,9 @@ export class WordsService{
   constructor(private http:Http){
     console.log('Words Service Initialized...');
   }
+
+  getTasks(){
+    return this.http.get('/api/words')
+      .map(res => res.json());
+  }
 }
