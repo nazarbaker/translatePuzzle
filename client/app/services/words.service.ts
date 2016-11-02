@@ -5,12 +5,19 @@ import 'rxjs/add/operator/map';
 @Injectable()
 
 export class WordsService{
-  constructor(private http:Http){
+  constructor(private http:Http) {
     console.log('Words Service Initialized...');
   }
 
-  getTasks(){
+  getWords() {
     return this.http.get('/api/words')
       .map(res => res.json());
+  }
+
+  addWords(newWords) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('/api/words', JSON.stringify(newWords), { headers: headers })
+      .map(res => res.json())
   }
 }

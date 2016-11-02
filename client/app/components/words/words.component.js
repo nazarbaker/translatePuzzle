@@ -14,11 +14,25 @@ var WordsComponent = (function () {
     function WordsComponent(wordsService) {
         var _this = this;
         this.wordsService = wordsService;
-        this.wordsService.getTasks()
+        this.wordsService.getWords()
             .subscribe(function (words) {
             _this.words = words;
         });
     }
+    WordsComponent.prototype.addWords = function (event) {
+        var _this = this;
+        event.preventDefault();
+        var newWords = {
+            english: this.english,
+            ukrainian: this.ukrainian
+        };
+        this.wordsService.addWords(newWords)
+            .subscribe(function (words) {
+            _this.words.push(words);
+            _this.english = '';
+            _this.ukrainian = '';
+        });
+    };
     WordsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

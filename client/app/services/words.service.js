@@ -16,8 +16,14 @@ var WordsService = (function () {
         this.http = http;
         console.log('Words Service Initialized...');
     }
-    WordsService.prototype.getTasks = function () {
+    WordsService.prototype.getWords = function () {
         return this.http.get('/api/words')
+            .map(function (res) { return res.json(); });
+    };
+    WordsService.prototype.addWords = function (newWords) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/words', JSON.stringify(newWords), { headers: headers })
             .map(function (res) { return res.json(); });
     };
     WordsService = __decorate([

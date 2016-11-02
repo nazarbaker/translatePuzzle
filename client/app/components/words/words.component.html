@@ -1,3 +1,13 @@
+<form class="" (submit)="addWords($event)" >
+  <div class="form-group">
+    <input type="text" [(ngModel)]="english" name="english" placeholder="Add English Word">
+
+    <input type="text" [(ngModel)]="ukrainian" name="ukrainian" placeholder="Add Ukrainian Word">
+
+    <input type="submit">
+  </div>
+</form>
+
 <div class="task-list row">
   <div *ngFor="let word of words" class="row">
     <div class="col-md-4">

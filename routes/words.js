@@ -12,4 +12,23 @@ router.get('/words', function(req, res, next){
   })
 });
 
+// Save Words
+router.post('/words', function(req, res, next){
+  var words = req.body;
+
+  if(!words.english || !words.ukrainian){
+    res.status(400);
+    res.json({
+      "error": "Bad Data"
+    });
+  } else {
+    db.englishwords.save(words, function(err, words){
+      if(err){
+        res.send(err);
+      }
+      res.json(words);
+    })
+  }
+})
+
 module.exports = router;
