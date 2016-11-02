@@ -34,4 +34,18 @@ export class WordsComponent {
           this.ukrainian = '';
         });
   }
+
+  deleteWords(id) {
+    var words = this.words;
+
+    this.wordsService.deleteWords(id).subscribe(data => {
+      if(data.n == 1) {
+        for(var i = 0; i < words.length; i++) {
+          if(words[i]._id ==id) {
+            words.splice(i, 1);
+          }
+        }
+      }
+    })
+  }
 }

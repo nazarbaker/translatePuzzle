@@ -31,4 +31,14 @@ router.post('/words', function(req, res, next){
   }
 })
 
+// Delete Words
+router.delete('/words/:id', function(req, res, next){
+  db.englishwords.remove({_id: mongojs.ObjectId(req.params.id)}, function(err, words){
+    if(err){
+      res.send(err);
+    }
+    res.json(words);
+  })
+})
+
 module.exports = router;

@@ -26,6 +26,10 @@ var WordsService = (function () {
         return this.http.post('/api/words', JSON.stringify(newWords), { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    WordsService.prototype.deleteWords = function (id) {
+        return this.http.delete('/api/words/' + id)
+            .map(function (res) { return res.json(); });
+    };
     WordsService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

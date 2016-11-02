@@ -20,4 +20,9 @@ export class WordsService{
     return this.http.post('/api/words', JSON.stringify(newWords), { headers: headers })
       .map(res => res.json())
   }
+
+  deleteWords(id) {
+    return this.http.delete('/api/words/' + id)
+      .map(res => res.json());
+  }
 }
