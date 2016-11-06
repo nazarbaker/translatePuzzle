@@ -22,10 +22,10 @@ export class WordsComponent {
 
   addWords(event) {
     event.preventDefault();
-    var newWords = {
+    const newWords = {
       english: this.english,
       ukrainian: this.ukrainian
-    }
+    };
 
     this.wordsService.addWords(newWords)
         .subscribe(words => {
@@ -36,16 +36,16 @@ export class WordsComponent {
   }
 
   deleteWords(id) {
-    var words = this.words;
+    const words = this.words;
 
     this.wordsService.deleteWords(id).subscribe(data => {
-      if(data.n == 1) {
-        for(var i = 0; i < words.length; i++) {
-          if(words[i]._id ==id) {
+      if (data.n === 1) {
+        for (let i = 0; i < words.length; i++) {
+          if (words[i]._id === id) {
             words.splice(i, 1);
           }
         }
       }
-    })
+    });
   }
 }

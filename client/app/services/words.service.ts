@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { Http, Headers } from "@angular/http";
+import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 
-export class WordsService{
-  constructor(private http:Http) {
+export class WordsService {
+  constructor(private http: Http) {
     console.log('Words Service Initialized...');
   }
 
@@ -15,10 +15,10 @@ export class WordsService{
   }
 
   addWords(newWords) {
-    var headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('/api/words', JSON.stringify(newWords), { headers: headers })
-      .map(res => res.json())
+      .map(res => res.json());
   }
 
   deleteWords(id) {

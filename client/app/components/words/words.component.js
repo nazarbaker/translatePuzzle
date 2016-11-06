@@ -36,9 +36,9 @@ var WordsComponent = (function () {
     WordsComponent.prototype.deleteWords = function (id) {
         var words = this.words;
         this.wordsService.deleteWords(id).subscribe(function (data) {
-            if (data.n == 1) {
+            if (data.n === 1) {
                 for (var i = 0; i < words.length; i++) {
-                    if (words[i]._id == id) {
+                    if (words[i]._id === id) {
                         words.splice(i, 1);
                     }
                 }
