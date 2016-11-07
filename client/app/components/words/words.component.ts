@@ -12,6 +12,7 @@ export class WordsComponent {
   words: Words[];
   english: string;
   ukrainian: string;
+  _id: string;
 
   constructor(private wordsService: WordsService) {
     this.wordsService.getWords()

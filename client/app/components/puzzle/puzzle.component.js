@@ -9,24 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var http_1 = require('@angular/http');
-var forms_1 = require('@angular/forms');
-var app_component_1 = require('./app.component');
-var words_component_1 = require('./components/words/words.component');
-var puzzle_component_1 = require('./components/puzzle/puzzle.component');
-var AppModule = (function () {
-    function AppModule() {
+var PuzzleComponent = (function () {
+    function PuzzleComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, words_component_1.WordsComponent, puzzle_component_1.PuzzleComponent],
-            bootstrap: [app_component_1.AppComponent]
+    PuzzleComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'puzzle',
+            templateUrl: 'puzzle.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], PuzzleComponent);
+    return PuzzleComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.PuzzleComponent = PuzzleComponent;
+//# sourceMappingURL=puzzle.component.js.map
