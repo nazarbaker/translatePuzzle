@@ -1,4 +1,4 @@
-export class Words {
+export class Puzzle {
   english: string;
   ukrainian: string;
 }

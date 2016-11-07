@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WordsService } from '../../services/words.service';
-import { Puzzle } from '../../../Puzzle';
+import { Puzzle } from '../../Puzzle';
 
 @Component({
   moduleId: module.id,
@@ -9,5 +9,5 @@ import { Puzzle } from '../../../Puzzle';
 })
 
 export class PuzzleComponent {
-  
+
 }
