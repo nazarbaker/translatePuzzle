@@ -9,16 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var core_2 = require('@angular/core');
 var PuzzleComponent = (function () {
-    function PuzzleComponent() {
+    function PuzzleComponent(_elRef) {
+        this._elRef = _elRef;
     }
+    PuzzleComponent.prototype.ngOnInit = function () {
+        jQuery(this._elRef.nativeElement).find('.flashcard').on('click', function () {
+            $('.flashcard').toggleClass('flipped');
+        });
+    };
     PuzzleComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'puzzle',
-            templateUrl: 'puzzle.component.html'
+            templateUrl: 'puzzle.component.html',
+            styleUrls: ['./puzzle.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_2.ElementRef])
     ], PuzzleComponent);
     return PuzzleComponent;
 }());
