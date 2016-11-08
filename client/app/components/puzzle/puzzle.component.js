@@ -10,13 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
+var words_service_1 = require('../../services/words.service');
+var core_3 = require('@angular/core');
 var PuzzleComponent = (function () {
-    function PuzzleComponent(_elRef) {
+    function PuzzleComponent(_elRef, wordsService) {
+        var _this = this;
         this._elRef = _elRef;
+        this.wordsService = wordsService;
+        this.wordsService.getWords()
+            .subscribe(function (words) {
+            _this.number = Math.floor(Math.random() * words.length);
+            _this.words = words;
+            _this.english = _this.words[_this.number].english;
+            _this.ukrainian = _this.words[_this.number].ukrainian;
+        });
     }
     PuzzleComponent.prototype.ngOnInit = function () {
         jQuery(this._elRef.nativeElement).find('.flashcard').on('click', function () {
-            $('.flashcard').toggleClass('flipped');
+            jQuery('.flashcard').toggleClass('flipped');
         });
     };
     PuzzleComponent = __decorate([
@@ -25,8 +36,9 @@ var PuzzleComponent = (function () {
             selector: 'puzzle',
             templateUrl: 'puzzle.component.html',
             styleUrls: ['./puzzle.component.css']
-        }), 
-        __metadata('design:paramtypes', [core_2.ElementRef])
+        }),
+        core_3.Injectable(), 
+        __metadata('design:paramtypes', [core_2.ElementRef, words_service_1.WordsService])
     ], PuzzleComponent);
     return PuzzleComponent;
 }());

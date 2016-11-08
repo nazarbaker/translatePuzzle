@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { OnInit } from '@angular/core';
-
 import { WordsService } from '../../services/words.service';
-import { Puzzle } from '../../Puzzle';
+import { Words } from '../../../Words';
+import { Injectable } from '@angular/core';
 
 declare var jQuery: any;
 
@@ -14,12 +14,27 @@ declare var jQuery: any;
   styleUrls: ['./puzzle.component.css']
 })
 
+@Injectable()
 export class PuzzleComponent implements OnInit {
-  constructor(private _elRef: ElementRef) {}
+  words: Words[];
+  english: string;
+  ukrainian: string;
+  _id: string;
+  number: number;
+
+  constructor(private _elRef: ElementRef, private wordsService: WordsService) {
+    this.wordsService.getWords()
+        .subscribe(words => {
+          this.number = Math.floor(Math.random() * words.length)
+          this.words = words
+          this.english = this.words[this.number].english
+          this.ukrainian = this.words[this.number].ukrainian
+        });
+  }
 
   ngOnInit():any {
     jQuery(this._elRef.nativeElement).find('.flashcard').on('click', function() {
-      $('.flashcard').toggleClass('flipped');
+      jQuery('.flashcard').toggleClass('flipped');
     });
   }
 }
