@@ -25,6 +25,16 @@ var PuzzleComponent = (function () {
             _this.ukrainian = _this.words[_this.number].ukrainian;
         });
     }
+    PuzzleComponent.prototype.nextWords = function () {
+        var _this = this;
+        this.wordsService.getWords()
+            .subscribe(function (words) {
+            _this.number = Math.floor(Math.random() * words.length);
+            _this.words = words;
+            _this.english = _this.words[_this.number].english;
+            _this.ukrainian = _this.words[_this.number].ukrainian;
+        });
+    };
     PuzzleComponent.prototype.ngOnInit = function () {
         jQuery(this._elRef.nativeElement).find('.flashcard').on('click', function () {
             jQuery('.flashcard').toggleClass('flipped');

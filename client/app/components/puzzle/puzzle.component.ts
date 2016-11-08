@@ -32,6 +32,16 @@ export class PuzzleComponent implements OnInit {
         });
   }
 
+  nextWords() {
+    this.wordsService.getWords()
+        .subscribe(words => {
+          this.number = Math.floor(Math.random() * words.length)
+          this.words = words
+          this.english = this.words[this.number].english
+          this.ukrainian = this.words[this.number].ukrainian
+        });
+  }
+
   ngOnInit():any {
     jQuery(this._elRef.nativeElement).find('.flashcard').on('click', function() {
       jQuery('.flashcard').toggleClass('flipped');
